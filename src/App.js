@@ -6,29 +6,42 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import WatchPage from './components/WatchPage';
 import MainContainer from './components/MainContainer';
 import Body from './components/Body';
+import CreateCard from './practiceNishan/CreateCard';
+import SearchList from './components/SearchList';
+
 // const appRouter = createBrowswerRouter
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <Body/>,
+    element: <><Header/> <Body /></>,
     children: [
       {
         path: "/",
-        element:< MainContainer/>
+        element: < MainContainer />
       },
       {
-        path: "watch",
-        element:< WatchPage/>
+        path: "/watch",
+        element: < WatchPage />
+      },
+      {
+        path: "/createCard",
+        element: < CreateCard />
+      },
+      {
+        path: "/searchList",
+        element: < SearchList />
       }
+
     ]
-  },
+
+  }
 
 ])
 function App() {
   return (
+
     <Provider store={store}>
-      <Header />
       <RouterProvider router={appRouter} />
     </Provider>
   );

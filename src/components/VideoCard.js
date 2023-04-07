@@ -1,14 +1,17 @@
-const VideoCard = ({ data }) => {
-    const { title, channelTitle } = data.snippet
-    const { medium } = data.snippet.thumbnails
-    const {viewCount} = data.statistics
-    return (
+const VideoCard = ({ snippet, statistics, }) => {
 
-        <div className="w-48">
-            <img alt="thumbnails videos" src={medium.url} />
-            <h1>{title}</h1>
-            <h1>{channelTitle}</h1>
-            <h1>{viewCount}</h1>
+    const { title, channelTitle } = snippet
+    const { medium } = snippet.thumbnails
+    const { viewCount } = statistics
+    return (
+        <div className="flex flex-wrap">
+            <div className="w-48 ">
+                <img alt="thumbnails videos" src={medium.url} />
+                <div className="pt-1 text-[14.5px]">{title.substring(0, 34)+"..."}</div>
+                <div className="pt-0.5 text-[15px] text-gray-500">{channelTitle}</div>
+                <div className="text-[15px] text-gray-500">{Number(viewCount)} views</div>
+            </div>
+
         </div>
 
     )

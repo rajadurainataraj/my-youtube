@@ -1,9 +1,12 @@
 import Button from "./Button"
+import { Link } from "react-router-dom"
 
 const ButtonList = () => {
     return (
         <div className="flex">
-            <Button name="All" />
+            <Link to="createCard">
+                <Button name="All" />
+                </Link>
             <Button name="Mixes" />
             <Button name="Tamil" />
             <Button name="Music" />
